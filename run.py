@@ -14,7 +14,9 @@ def main():
     sample2_images = pdf_to_images(sample2_pdf_path)
 
     if len(sample1_images) != len(sample2_images):
+        print("PDFs have a different number of pages.")
         return
+
     for index in range(len(sample1_images)):
         img1 = sample1_images[index].convert("RGB")
         img2 = sample2_images[index].convert("RGB")
