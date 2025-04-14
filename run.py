@@ -1,4 +1,5 @@
 from pdf2image import convert_from_path
+from PIL import ImageChops
 
 
 def pdf_to_images(path, dpi=300):
@@ -14,6 +15,11 @@ def main():
 
     if len(sample1_images) != len(sample2_images):
         return
+    for index in range(len(sample1_images)):
+        img1 = sample1_images[index].convert("RGB")
+        img2 = sample2_images[index].convert("RGB")
+        diff = ImageChops.difference(img1, img2)
+        print(diff)
 
 
 if __name__ == "__main__":
