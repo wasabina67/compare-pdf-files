@@ -4,6 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+pdf2image = "*"
 
 [dev-packages]
 black = "*"
