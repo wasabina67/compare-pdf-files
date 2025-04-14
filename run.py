@@ -27,7 +27,7 @@ def main():
             print(f"Page {index + 1}: No differences found.")
         else:
             print(f"Page {index + 1}: Differences detected.")
-            diff.save(f"diff_page_{index + 1}.png")
+            diff.save(f"./diffs/page{index + 1}.png")
 
 
 if __name__ == "__main__":
