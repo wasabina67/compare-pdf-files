@@ -7,8 +7,8 @@ def pdf_to_images(path, dpi=300):
 
 
 def main():
-    sample1_pdf_path = "sample1.pdf"
-    sample2_pdf_path = "sample2.pdf"
+    sample1_pdf_path = "./docs/sample1.pdf"
+    sample2_pdf_path = "./docs/sample2.pdf"
 
     sample1_images = pdf_to_images(sample1_pdf_path)
     sample2_images = pdf_to_images(sample2_pdf_path)
