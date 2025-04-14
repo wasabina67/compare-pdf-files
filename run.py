@@ -1,5 +1,5 @@
 from pdf2image import convert_from_path
-from PIL import ImageChops
+from PIL import ImageChops, ImageStat
 
 
 def pdf_to_images(path, dpi=300):
@@ -21,7 +21,13 @@ def main():
         img1 = sample1_images[index].convert("RGB")
         img2 = sample2_images[index].convert("RGB")
         diff = ImageChops.difference(img1, img2)
-        print(diff)
+
+        stat = ImageStat.Stat(diff)
+        if stat.sum == [0, 0, 0]:
+            print(f"Page {index + 1}: No differences found.")
+        else:
+            print(f"Page {index + 1}: Differences detected.")
+            diff.save(f"diff_page_{index + 1}.png")
 
 
 if __name__ == "__main__":
